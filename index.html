@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Luis González - Mantenimiento, Bricolaje y Reformas</title>
+    <meta name="description" content="José Luis González - Profesional de mantenimiento, bricolaje y reformas con más de 5 años de experiencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(to bottom right, #f97316, #ea580c);
+        }
+        
+        .gradient-blue {
+            background: linear-gradient(to bottom right, #1e3a8a, #1e40af, #1e3a8a);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-color: #fed7aa;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-slate-50 to-white">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden gradient-blue text-white">
+        <div class="absolute inset-0 hero-bg"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+            <div class="flex justify-between items-start mb-8">
+                <span class="inline-block bg-orange-500 text-white text-sm px-4 py-1 rounded-full font-medium">
+                    <span data-i18n="professionalTag">Profesional de confianza</span>
+                </span>
+                
+                <!-- Language Selector -->
+                <div class="relative">
+                    <button id="langBtn" class="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-4 py-2 rounded-lg hover:bg-white/20 transition flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span id="currentLang">🇪🇸 Español</span>
+                    </button>
+                    <div id="langMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl z-50">
+                        <button onclick="changeLang('es')" class="w-full text-left px-4 py-2 hover:bg-slate-100 rounded-t-lg flex items-center gap-2">
+                            <span>🇪🇸</span> Español
+                        </button>
+                        <button onclick="changeLang('en')" class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center gap-2">
+                            <span>🇬🇧</span> English
+                        </button>
+                        <button onclick="changeLang('de')" class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center gap-2">
+                            <span>🇩🇪</span> Deutsch
+                        </button>
+                        <button onclick="changeLang('fr')" class="w-full text-left px-4 py-2 hover:bg-slate-100 rounded-b-lg flex items-center gap-2">
+                            <span>🇫🇷</span> Français
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    José Luis González
+                </h1>
+                <p class="text-2xl md:text-3xl text-blue-100 mb-4 font-light">
+                    <span data-i18n="title">Mantenimiento, Bricolaje y Reformas</span>
+                </p>
+                <p class="text-lg md:text-xl text-blue-200 mb-10 leading-relaxed max-w-2xl">
+                    <span data-i18n="heroDescription">Soluciones profesionales para tu hogar. Más de 5 años de experiencia transformando espacios y resolviendo problemas.</span>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/34690012902?text=Hola%20José%20Luis,%20me%20gustaría%20solicitar%20un%20presupuesto." target="_blank" class="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span data-i18n="requestQuote">Solicitar Presupuesto</span>
+                    </a>
+                    <a href="#contacto" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/30 text-lg px-8 py-6 rounded-xl backdrop-blur-sm transition-all font-medium">
+                        <span data-i18n="moreInfo">Más Información</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-50 to-transparent"></div>
+    </section>
+
+    <!-- Benefits Bar -->
+    <section class="py-12 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="flex items-center gap-3 justify-center">
+                    <svg class="h-6 w-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                    <span class="text-sm md:text-base text-slate-700 font-medium" data-i18n="experiencedPro">Profesional experimentado</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                    <svg class="h-6 w-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                    </svg>
+                    <span class="text-sm md:text-base text-slate-700 font-medium" data-i18n="qualityWork">Trabajo de calidad garantizado</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                    <svg class="h-6 w-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-sm md:text-base text-slate-700 font-medium" data-i18n="punctuality">Puntualidad y compromiso</span>
+                </div>
+                <div class="flex items-center gap-3 justify-center">
+                    <svg class="h-6 w-6 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-sm md:text-base text-slate-700 font-medium" data-i18n="freeQuote">Presupuesto sin compromiso</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 md:py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block mb-4 bg-blue-100 text-blue-800 text-sm px-4 py-1 rounded-full font-medium">
+                    <span data-i18n="servicesTag">Servicios</span>
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                    <span data-i18n="servicesTitle">¿Qué puedo hacer por ti?</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                    <span data-i18n="servicesSubtitle">Servicios profesionales adaptados a tus necesidades</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1: Mantenimiento -->
+                <div class="bg-white rounded-xl p-8 border border-slate-200 card-hover">
+                    <div class="gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mb-6 hover-scale">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                        <span data-i18n="maintenance">Mantenimiento</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        <span data-i18n="maintenanceDesc">Mantenimiento preventivo y correctivo para tu hogar o negocio</span>
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="plumbing">Fontanería</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="basicElectric">Electricidad básica</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="generalRepairs">Reparaciones generales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Bricolaje -->
+                <div class="bg-white rounded-xl p-8 border border-slate-200 card-hover">
+                    <div class="gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mb-6 hover-scale">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                        <span data-i18n="diy">Bricolaje</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        <span data-i18n="diyDesc">Trabajos de bricolaje profesional adaptados a tus necesidades</span>
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="furnitureAssembly">Montaje de muebles</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="installations">Instalaciones</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="woodwork">Trabajos en madera</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Reformas -->
+                <div class="bg-white rounded-xl p-8 border border-slate-200 card-hover">
+                    <div class="gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mb-6 hover-scale">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                        <span data-i18n="renovations">Reformas</span>
+                    </h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        <span data-i18n="renovationsDesc">Reformas integrales para renovar tus espacios</span>
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="bathKitchen">Baños y cocinas</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="painting">Pintura</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-slate-700">
+                            <svg class="h-5 w-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="completeRenovations">Renovaciones completas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 md:py-28 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block mb-4 bg-orange-100 text-orange-800 text-sm px-4 py-1 rounded-full font-medium">
+                        <span data-i18n="aboutTag">Sobre mí</span>
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                        <span data-i18n="aboutTitle">Profesionalidad y experiencia</span>
+                    </h2>
+                    <div class="space-y-4 text-lg text-slate-700 leading-relaxed">
+                        <p data-i18n="aboutText1">Me llamo José Luis González y soy un profesional dedicado al mantenimiento, bricolaje y reformas con más de 5 años de experiencia.</p>
+                        <p data-i18n="aboutText2">Mi compromiso es ofrecer un servicio de calidad, con atención al detalle y siempre cumpliendo los plazos acordados. Cada proyecto es único y merece un trato personalizado.</p>
+                        <p data-i18n="aboutText3">Trabajo con las mejores herramientas y materiales, garantizando resultados duraderos que superan las expectativas de mis clientes.</p>
+                    </div>
+                    <a href="https://wa.me/34690012902?text=Hola%20José%20Luis,%20me%20gustaría%20solicitar%20un%20presupuesto." target="_blank" class="inline-block mt-8 bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-xl text-lg font-medium transition-all">
+                        <span data-i18n="contactNow">Contactar ahora</span>
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Herramientas profesionales" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-orange-500 text-white p-8 rounded-2xl shadow-xl max-w-xs">
+                        <p class="text-4xl font-bold mb-2">100%</p>
+                        <p class="text-lg" data-i18n="satisfaction">Satisfacción garantizada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-20 md:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block mb-4 bg-orange-100 text-orange-800 text-sm px-4 py-1 rounded-full font-medium">
+                    <span data-i18n="portfolioTag">Portfolio</span>
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                    <span data-i18n="portfolioTitle">Proyectos realizados</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                    <span data-i18n="portfolioSubtitle">Algunos ejemplos de mis trabajos más recientes</span>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=800" alt="Reforma integral de cocina" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Reformas</span>
+                        <h3 class="text-xl font-bold text-slate-900">Reforma integral de cocina</h3>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800" alt="Instalación de suelos" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Bricolaje</span>
+                        <h3 class="text-xl font-bold text-slate-900">Instalación de suelos</h3>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800" alt="Reforma de baño completo" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Reformas</span>
+                        <h3 class="text-xl font-bold text-slate-900">Reforma de baño completo</h3>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800" alt="Pintura interior" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mantenimiento</span>
+                        <h3 class="text-xl font-bold text-slate-900">Pintura interior</h3>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800" alt="Montaje de muebles" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Bricolaje</span>
+                        <h3 class="text-xl font-bold text-slate-900">Montaje de muebles</h3>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-slate-200 card-hover">
+                    <div class="relative overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800" alt="Reparación de fontanería" class="w-full h-full object-cover hover-scale">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block mb-3 bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mantenimiento</span>
+                        <h3 class="text-xl font-bold text-slate-900">Reparación de fontanería</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 md:py-28 gradient-blue text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="inline-block mb-6 bg-orange-500 text-white text-sm px-4 py-1 rounded-full font-medium">
+                <span data-i18n="contactTag">Contacto</span>
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                <span data-i18n="contactTitle">¿Listo para empezar tu proyecto?</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+                <span data-i18n="contactSubtitle">Contáctame para un presupuesto sin compromiso. Respondo rápido y estaré encantado de ayudarte.</span>
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:bg-white/15 transition-all">
+                    <div class="bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="phone">Teléfono</h3>
+                    <a href="tel:+34690012902" class="text-lg text-blue-100 hover:text-white transition-colors">
+                        +34 690 012 902
+                    </a>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:bg-white/15 transition-all">
+                    <div class="bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="email">Email</h3>
+                    <a href="mailto:josegr97@gmail.com" class="text-lg text-blue-100 hover:text-white transition-colors break-all">
+                        josegr97@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-lg mb-2 text-white font-semibold">José Luis González</p>
+            <p data-i18n="footerTitle">Mantenimiento, Bricolaje y Reformas</p>
+            <p class="mt-4 text-sm">© 2026 - <span data-i18n="footerRights">Todos los derechos reservados</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            es: {
+                professionalTag: "Profesional de confianza",
+                title: "Mantenimiento, Bricolaje y Reformas",
+                heroDescription: "Soluciones profesionales para tu hogar. Más de 5 años de experiencia transformando espacios y resolviendo problemas.",
+                requestQuote: "Solicitar Presupuesto",
+                moreInfo: "Más Información",
+                experiencedPro: "Profesional experimentado",
+                qualityWork: "Trabajo de calidad garantizado",
+                punctuality: "Puntualidad y compromiso",
+                freeQuote: "Presupuesto sin compromiso",
+                servicesTag: "Servicios",
+                servicesTitle: "¿Qué puedo hacer por ti?",
+                servicesSubtitle: "Servicios profesionales adaptados a tus necesidades",
+                maintenance: "Mantenimiento",
+                maintenanceDesc: "Mantenimiento preventivo y correctivo para tu hogar o negocio",
+                plumbing: "Fontanería",
+                basicElectric: "Electricidad básica",
+                generalRepairs: "Reparaciones generales",
+                diy: "Bricolaje",
+                diyDesc: "Trabajos de bricolaje profesional adaptados a tus necesidades",
+                furnitureAssembly: "Montaje de muebles",
+                installations: "Instalaciones",
+                woodwork: "Trabajos en madera",
+                renovations: "Reformas",
+                renovationsDesc: "Reformas integrales para renovar tus espacios",
+                bathKitchen: "Baños y cocinas",
+                painting: "Pintura",
+                completeRenovations: "Renovaciones completas",
+                aboutTag: "Sobre mí",
+                aboutTitle: "Profesionalidad y experiencia",
+                aboutText1: "Me llamo José Luis González y soy un profesional dedicado al mantenimiento, bricolaje y reformas con más de 5 años de experiencia.",
+                aboutText2: "Mi compromiso es ofrecer un servicio de calidad, con atención al detalle y siempre cumpliendo los plazos acordados. Cada proyecto es único y merece un trato personalizado.",
+                aboutText3: "Trabajo con las mejores herramientas y materiales, garantizando resultados duraderos que superan las expectativas de mis clientes.",
+                contactNow: "Contactar ahora",
+                satisfaction: "Satisfacción garantizada",
+                portfolioTag: "Portfolio",
+                portfolioTitle: "Proyectos realizados",
+                portfolioSubtitle: "Algunos ejemplos de mis trabajos más recientes",
+                contactTag: "Contacto",
+                contactTitle: "¿Listo para empezar tu proyecto?",
+                contactSubtitle: "Contáctame para un presupuesto sin compromiso. Respondo rápido y estaré encantado de ayudarte.",
+                phone: "Teléfono",
+                email: "Email",
+                footerTitle: "Mantenimiento, Bricolaje y Reformas",
+                footerRights: "Todos los derechos reservados"
+            },
+            en: {
+                professionalTag: "Trusted Professional",
+                title: "Maintenance, DIY and Renovations",
+                heroDescription: "Professional solutions for your home. Over 5 years of experience transforming spaces and solving problems.",
+                requestQuote: "Request Quote",
+                moreInfo: "More Information",
+                experiencedPro: "Experienced professional",
+                qualityWork: "Guaranteed quality work",
+                punctuality: "Punctuality and commitment",
+                freeQuote: "Free quote",
+                servicesTag: "Services",
+                servicesTitle: "What can I do for you?",
+                servicesSubtitle: "Professional services tailored to your needs",
+                maintenance: "Maintenance",
+                maintenanceDesc: "Preventive and corrective maintenance for your home or business",
+                plumbing: "Plumbing",
+                basicElectric: "Basic electrical",
+                generalRepairs: "General repairs",
+                diy: "DIY",
+                diyDesc: "Professional DIY work tailored to your needs",
+                furnitureAssembly: "Furniture assembly",
+                installations: "Installations",
+                woodwork: "Woodwork",
+                renovations: "Renovations",
+                renovationsDesc: "Complete renovations to renew your spaces",
+                bathKitchen: "Bathrooms and kitchens",
+                painting: "Painting",
+                completeRenovations: "Complete renovations",
+                aboutTag: "About me",
+                aboutTitle: "Professionalism and experience",
+                aboutText1: "My name is José Luis González and I am a professional dedicated to maintenance, DIY and renovations with over 5 years of experience.",
+                aboutText2: "My commitment is to offer quality service, with attention to detail and always meeting agreed deadlines. Each project is unique and deserves personalized treatment.",
+                aboutText3: "I work with the best tools and materials, guaranteeing lasting results that exceed my clients' expectations.",
+                contactNow: "Contact now",
+                satisfaction: "Satisfaction guaranteed",
+                portfolioTag: "Portfolio",
+                portfolioTitle: "Completed projects",
+                portfolioSubtitle: "Some examples of my most recent work",
+                contactTag: "Contact",
+                contactTitle: "Ready to start your project?",
+                contactSubtitle: "Contact me for a free quote. I respond quickly and will be happy to help you.",
+                phone: "Phone",
+                email: "Email",
+                footerTitle: "Maintenance, DIY and Renovations",
+                footerRights: "All rights reserved"
+            },
+            de: {
+                professionalTag: "Vertrauenswürdiger Fachmann",
+                title: "Wartung, Heimwerken und Renovierungen",
+                heroDescription: "Professionelle Lösungen für Ihr Zuhause. Über 5 Jahre Erfahrung in der Umgestaltung von Räumen und Problemlösung.",
+                requestQuote: "Angebot anfordern",
+                moreInfo: "Mehr Informationen",
+                experiencedPro: "Erfahrener Fachmann",
+                qualityWork: "Garantierte Qualitätsarbeit",
+                punctuality: "Pünktlichkeit und Engagement",
+                freeQuote: "Kostenloses Angebot",
+                servicesTag: "Dienstleistungen",
+                servicesTitle: "Was kann ich für Sie tun?",
+                servicesSubtitle: "Professionelle Dienstleistungen nach Ihren Bedürfnissen",
+                maintenance: "Wartung",
+                maintenanceDesc: "Vorbeugende und korrigierende Wartung für Ihr Zuhause oder Geschäft",
+                plumbing: "Sanitär",
+                basicElectric: "Grundlegende Elektrik",
+                generalRepairs: "Allgemeine Reparaturen",
+                diy: "Heimwerken",
+                diyDesc: "Professionelle Heimwerkerarbeiten nach Ihren Bedürfnissen",
+                furnitureAssembly: "Möbelmontage",
+                installations: "Installationen",
+                woodwork: "Holzarbeiten",
+                renovations: "Renovierungen",
+                renovationsDesc: "Komplette Renovierungen zur Erneuerung Ihrer Räume",
+                bathKitchen: "Bäder und Küchen",
+                painting: "Malerei",
+                completeRenovations: "Komplette Renovierungen",
+                aboutTag: "Über mich",
+                aboutTitle: "Professionalität und Erfahrung",
+                aboutText1: "Mein Name ist José Luis González und ich bin ein Fachmann für Wartung, Heimwerken und Renovierungen mit über 5 Jahren Erfahrung.",
+                aboutText2: "Mein Engagement ist es, qualitativ hochwertigen Service mit Liebe zum Detail zu bieten und vereinbarte Fristen einzuhalten. Jedes Projekt ist einzigartig und verdient individuelle Behandlung.",
+                aboutText3: "Ich arbeite mit den besten Werkzeugen und Materialien und garantiere dauerhafte Ergebnisse, die die Erwartungen meiner Kunden übertreffen.",
+                contactNow: "Jetzt kontaktieren",
+                satisfaction: "Zufriedenheit garantiert",
+                portfolioTag: "Portfolio",
+                portfolioTitle: "Abgeschlossene Projekte",
+                portfolioSubtitle: "Einige Beispiele meiner neuesten Arbeiten",
+                contactTag: "Kontakt",
+                contactTitle: "Bereit, Ihr Projekt zu starten?",
+                contactSubtitle: "Kontaktieren Sie mich für ein kostenloses Angebot. Ich antworte schnell und helfe Ihnen gerne.",
+                phone: "Telefon",
+                email: "E-Mail",
+                footerTitle: "Wartung, Heimwerken und Renovierungen",
+                footerRights: "Alle Rechte vorbehalten"
+            },
+            fr: {
+                professionalTag: "Professionnel de confiance",
+                title: "Maintenance, Bricolage et Rénovations",
+                heroDescription: "Solutions professionnelles pour votre maison. Plus de 5 ans d'expérience dans la transformation d'espaces et la résolution de problèmes.",
+                requestQuote: "Demander un devis",
+                moreInfo: "Plus d'informations",
+                experiencedPro: "Professionnel expérimenté",
+                qualityWork: "Travail de qualité garanti",
+                punctuality: "Ponctualité et engagement",
+                freeQuote: "Devis gratuit",
+                servicesTag: "Services",
+                servicesTitle: "Que puis-je faire pour vous ?",
+                servicesSubtitle: "Services professionnels adaptés à vos besoins",
+                maintenance: "Maintenance",
+                maintenanceDesc: "Maintenance préventive et corrective pour votre maison ou entreprise",
+                plumbing: "Plomberie",
+                basicElectric: "Électricité de base",
+                generalRepairs: "Réparations générales",
+                diy: "Bricolage",
+                diyDesc: "Travaux de bricolage professionnels adaptés à vos besoins",
+                furnitureAssembly: "Montage de meubles",
+                installations: "Installations",
+                woodwork: "Travaux en bois",
+                renovations: "Rénovations",
+                renovationsDesc: "Rénovations complètes pour renouveler vos espaces",
+                bathKitchen: "Salles de bains et cuisines",
+                painting: "Peinture",
+                completeRenovations: "Rénovations complètes",
+                aboutTag: "À propos de moi",
+                aboutTitle: "Professionnalisme et expérience",
+                aboutText1: "Je m'appelle José Luis González et je suis un professionnel dédié à la maintenance, au bricolage et aux rénovations avec plus de 5 ans d'expérience.",
+                aboutText2: "Mon engagement est d'offrir un service de qualité, avec une attention aux détails et en respectant toujours les délais convenus. Chaque projet est unique et mérite un traitement personnalisé.",
+                aboutText3: "Je travaille avec les meilleurs outils et matériaux, garantissant des résultats durables qui dépassent les attentes de mes clients.",
+                contactNow: "Contacter maintenant",
+                satisfaction: "Satisfaction garantie",
+                portfolioTag: "Portfolio",
+                portfolioTitle: "Projets réalisés",
+                portfolioSubtitle: "Quelques exemples de mes travaux les plus récents",
+                contactTag: "Contact",
+                contactTitle: "Prêt à démarrer votre projet ?",
+                contactSubtitle: "Contactez-moi pour un devis gratuit. Je réponds rapidement et serai ravi de vous aider.",
+                phone: "Téléphone",
+                email: "Email",
+                footerTitle: "Maintenance, Bricolage et Rénovations",
+                footerRights: "Tous droits réservés"
+            }
+        };
+
+        let currentLang = 'es';
+
+        // Language selector
+        const langBtn = document.getElementById('langBtn');
+        const langMenu = document.getElementById('langMenu');
+
+        langBtn.addEventListener('click', () => {
+            langMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                langMenu.classList.add('hidden');
+            }
+        });
+
+        function changeLang(lang) {
+            currentLang = lang;
+            const langNames = {
+                'es': '🇪🇸 Español',
+                'en': '🇬🇧 English',
+                'de': '🇩🇪 Deutsch',
+                'fr': '🇫🇷 Français'
+            };
+            
+            document.getElementById('currentLang').textContent = langNames[lang];
+            document.documentElement.lang = lang;
+            
+            // Update all translated elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            langMenu.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
